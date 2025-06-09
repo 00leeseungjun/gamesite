@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container {
+  background-color: black;
+}
+
+.cards-section {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;  /* 좌우로 정렬 */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+
+.filter-wrapper {
+  position: relative;
+}
+
+.filter-modal {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  z-index: 10;
+  width: 100px;
+}
+
+.filter-modal div {
+  padding: 6px;
+  cursor: pointer;
+}
+
+.filter-modal div:hover {
+  background-color: #f0f0f0;
+}
