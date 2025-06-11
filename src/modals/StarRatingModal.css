@@ -1,0 +1,68 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 20px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.stars {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.star {
+  cursor: pointer;
+  color: lightgray; /* ⭐ 없으면 기본 검정일 수 있음 */
+  transition: color 0.2s;
+}
+
+.star.filled {
+  color: gold;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.close-btn,
+.submit-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.close-btn {
+  background-color: #ccc;
+  color: #000;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+}
