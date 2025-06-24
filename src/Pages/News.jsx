@@ -1,110 +1,83 @@
-// src/components/UpdateEventSection.jsx
 import React, { useState } from 'react';
+import './News.css';
 
 const News = () => {
-    // true일 때 “업데이트” 탭, false일 때 “이벤트” 탭
-    const [isUpdateTab, setIsUpdateTab] = useState(false);
+    const [isUpdateTab, setIsUpdateTab] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
 
-    // 탭별로 바뀔 텍스트
     const labelText = isUpdateTab ? '게임 업데이트' : '게임 이벤트';
 
+    const newsData = [
+        {
+            id: 1,
+            type: 'update',
+            title: '오버워치',
+            subtitle: '업데이트 소식',
+            date: '2025.05.06',
+            content: '역대급 스킨으로 호평 받는 이번 7시즌의 새로운 스킨들을 확인하고, 그 외 다양한 정보와 이벤트 소식까지 한 눈에 확인하고 빠르게 즐기실 수 있도록 오버워치 2 메인 페이지가 새롭게 업데이트 되었습니다.',
+            image: 'https://blog.kakaocdn.net/dn/bEMVV5/btrEBXBjxlk/2y7BQ0NwxH8zlkjZz4zkEK/img.jpg'
+        },
+        {
+            id: 2,
+            type: 'update',
+            title: '오버워치',
+            subtitle: '업데이트 소식',
+            date: '2025.05.06',
+            content: '역대급 스킨으로 호평 받는 이번 7시즌의 새로운 스킨들을 확인하고, 그 외 다양한 정보와 이벤트 소식까지 한 눈에 확인하고 빠르게 즐기실 수 있도록 오버워치 2 메인 페이지가 새롭게 업데이트 되었습니다.',
+            image: 'https://blog.kakaocdn.net/dn/bEMVV5/btrEBXBjxlk/2y7BQ0NwxH8zlkjZz4zkEK/img.jpg'
+        },
+        {
+            id: 3,
+            type: 'update',
+            title: '오버워치',
+            subtitle: '업데이트 소식',
+            date: '2025.05.06',
+            content: '역대급 스킨으로 호평 받는 이번 7시즌의 새로운 스킨들을 확인하고, 그 외 다양한 정보와 이벤트 소식까지 한 눈에 확인하고 빠르게 즐기실 수 있도록 오버워치 2 메인 페이지가 새롭게 업데이트 되었습니다.',
+            image: 'https://blog.kakaocdn.net/dn/bEMVV5/btrEBXBjxlk/2y7BQ0NwxH8zlkjZz4zkEK/img.jpg'
+        },
+        {
+            id: 4,
+            type: 'event',
+            title: '오버워치',
+            subtitle: '이벤트 안내',
+            date: '2025.06.20',
+            content: '여름 한정 이벤트가 진행 중입니다. 스킨과 보상을 획득하세요!',
+            image: 'https://blog.kakaocdn.net/dn/9dfqHv/btrDYx3KxTx/1GM8BRrWIgKkONjbN2YtU1/img.jpg'
+        }
+    ];
+
+    const filteredData = newsData.filter(item =>
+        item.type === (isUpdateTab ? 'update' : 'event') &&
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
-        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
-            {/* ─── 탭 버튼 ─── */}
-            <div
-                style={{
-                    display: 'flex',
-                    borderBottom: '1px solid #ccc',
-                    marginBottom: '10px',
-                }}
-            >
-                <button
-                    onClick={() => setIsUpdateTab(true)}
-                    style={{
-                        flex: 1,
-                        padding: '10px 0',
-                        background: isUpdateTab ? '#f0f0f0' : 'transparent',
-                        border: 'none',
-                        borderBottom: isUpdateTab ? '2px solid #000' : '2px solid transparent',
-                        cursor: 'pointer',
-                        fontWeight: isUpdateTab ? 'bold' : 'normal',
-                    }}
-                >
-                    업데이트
-                </button>
-                <button
-                    onClick={() => setIsUpdateTab(false)}
-                    style={{
-                        flex: 1,
-                        padding: '10px 0',
-                        background: !isUpdateTab ? '#f0f0f0' : 'transparent',
-                        border: 'none',
-                        borderBottom: !isUpdateTab ? '2px solid #000' : '2px solid transparent',
-                        cursor: 'pointer',
-                        fontWeight: !isUpdateTab ? 'bold' : 'normal',
-                    }}
-                >
-                    이벤트
-                </button>
+        <div className="news-container">
+            <div className="news-tabs-search">
+                <div className="tabs">
+                    <button className={isUpdateTab ? 'active' : ''} onClick={() => setIsUpdateTab(true)}>업데이트</button>
+                    <button className={!isUpdateTab ? 'active' : ''} onClick={() => setIsUpdateTab(false)}>이벤트</button>
+                </div>
+                <div className="search-box">
+                    <input type="text" placeholder="검색" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+                    <button>검색</button>
+                </div>
             </div>
 
-            {/* ─── 내용 리스트 ─── */}
-            {/* 예시로 3개의 아이템을 넣었고, 각 항목마다 labelText만 바뀌도록 했습니다. */}
-            <div style={{ border: '1px solid #ccc', borderRadius: '4px', padding: '12px' }}>
-                {/* 첫 번째 아이템 */}
-                <div style={{ marginBottom: '16px' }}>
-                    <div style={{ fontWeight: 'bold' }}>게임 이름</div>
-                    <div style={{ marginTop: '8px' }}>
-                        <span style={{ fontWeight: 'bold' }}>{labelText}:</span>{' '}
-                        <span>게임 {labelText} 사진</span>
+            <div className="news-list">
+                {filteredData.map(item => (
+                    <div className="news-item" key={item.id}>
+                        <div className="news-text">
+                            <h3>{item.title}</h3>
+                            <h2>{item.subtitle}</h2>
+                            <p className="date">{item.date}</p>
+                            <p className="content">{item.content}</p>
+                        </div>
+                        <div className="news-image">
+                            <img src={item.image} alt="썸네일" />
+                        </div>
                     </div>
-                    <div style={{ marginTop: '4px' }}>
-                        <span style={{ fontWeight: 'bold' }}>날짜:</span>{' '}
-                        <span>2025-06-01</span>
-                    </div>
-                    <div style={{ marginTop: '4px' }}>
-                        <span style={{ fontWeight: 'bold' }}>{labelText} 내용:</span>{' '}
-                        <span>첫 번째 {labelText} 상세 설명이 여기에 들어갑니다.</span>
-                    </div>
-                </div>
-
-                <hr style={{ borderColor: '#e0e0e0' }} />
-
-                {/* 두 번째 아이템 */}
-                <div style={{ marginTop: '16px', marginBottom: '16px' }}>
-                    <div style={{ fontWeight: 'bold' }}>게임 이름</div>
-                    <div style={{ marginTop: '8px' }}>
-                        <span style={{ fontWeight: 'bold' }}>{labelText}:</span>{' '}
-                        <span>게임 {labelText} 사진</span>
-                    </div>
-                    <div style={{ marginTop: '4px' }}>
-                        <span style={{ fontWeight: 'bold' }}>날짜:</span>{' '}
-                        <span>2025-06-15</span>
-                    </div>
-                    <div style={{ marginTop: '4px' }}>
-                        <span style={{ fontWeight: 'bold' }}>{labelText} 내용:</span>{' '}
-                        <span>두 번째 {labelText} 상세 설명이 여기에 들어갑니다.</span>
-                    </div>
-                </div>
-
-                <hr style={{ borderColor: '#e0e0e0' }} />
-
-                {/* 세 번째 아이템 */}
-                <div style={{ marginTop: '16px' }}>
-                    <div style={{ fontWeight: 'bold' }}>게임 이름</div>
-                    <div style={{ marginTop: '8px' }}>
-                        <span style={{ fontWeight: 'bold' }}>{labelText}:</span>{' '}
-                        <span>게임 {labelText} 사진</span>
-                    </div>
-                    <div style={{ marginTop: '4px' }}>
-                        <span style={{ fontWeight: 'bold' }}>날짜:</span>{' '}
-                        <span>2025-07-01</span>
-                    </div>
-                    <div style={{ marginTop: '4px' }}>
-                        <span style={{ fontWeight: 'bold' }}>{labelText} 내용:</span>{' '}
-                        <span>세 번째 {labelText} 상세 설명이 여기에 들어갑니다.</span>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
