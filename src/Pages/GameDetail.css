@@ -1,0 +1,29 @@
+.game-detail-container {
+  background-color: #000;
+  color: #fff;
+}
+
+.game-detail-container h1,
+.game-detail-container h2 {
+  color: #fff;
+}
+
+.game-detail-container table td {
+  color: #fff;
+}
+
+.game-detail-container textarea {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.game-detail-container button {
+  background-color: #333;
+  color: #fff;
+}
+
+.game-detail-container ul li {
+  background-color: #1a1a1a;
+  color: #fff;
+}
