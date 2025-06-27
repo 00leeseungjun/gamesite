@@ -26,25 +26,16 @@
 
 // export default App
 
-
-
-
-import './App.css';
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import GameCard from './components/GameCard';
-import GameList from './components/GameList';
+import './App.css'
+import Header from './components/Header'
+import SearchBar from './components/SearchBar'
+import GameCard from './components/GameCard'
+import GameList from './components/GameList'
 
 // App.jsx 상단에 추가
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-
-import TestTailwind from './components/TestTailwind';
-
-
-
-
-
+import TestTailwind from './components/TestTailwind'
 
 // function App() {
 //   const [showFilter, setShowFilter] = useState(false);
@@ -80,23 +71,18 @@ import TestTailwind from './components/TestTailwind';
 //         </div>
 //       </div>
 
-
 //     </div>
 //   );
 // }
 
 // export default App;
 
-
 function App() {
-
-
-
-    return (
-        <div className="container">
-            <GameList />
-        </div>
-    );
+  return (
+    <div className="container">
+      <GameList />
+    </div>
+  )
 }
 
-export default App;
+export default App

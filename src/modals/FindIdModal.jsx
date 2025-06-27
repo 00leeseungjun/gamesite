@@ -14,7 +14,7 @@ const FindIdModal = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default FindIdModal;
+export default FindIdModal

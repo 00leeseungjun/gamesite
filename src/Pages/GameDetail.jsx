@@ -4,6 +4,7 @@ import '../App.css'
 import games from '../data/games'
 import StarRatingModal from '../modals/StarRatingModal'
 import './GameDetail.css'
+import ReactPlayer from 'react-player';
 
 const GameDetail = () => {
     const { id } = useParams()
@@ -50,8 +51,13 @@ const GameDetail = () => {
     return (
         <div
             className="game-detail-container"
-            style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '20px', boxSizing: 'border-box', }}
-        >
+            style={{
+                width: '100%',
+                maxWidth: '800px',
+                margin: '0 auto',
+                padding: '20px',
+                boxSizing: 'border-box',
+            }}>
             <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px' }}>{game.title}</h1>
 
             <div
@@ -61,26 +67,45 @@ const GameDetail = () => {
                     maxHeight: '400px',
                     overflow: 'hidden',
                     borderRadius: '8px',
-                }}
-            >
+                }}>
                 <img src={game.image} alt={game.title} style={imageStyle} />
                 <video src={game.video} style={videoStyle} controls />
             </div>
 
-            <button
-                onClick={() => setShowVideo((prev) => !prev)}
-                style={{
-                    marginTop: '10px',
-                    padding: '8px 16px',
-                    cursor: 'pointer',
-                    backgroundColor: '#333',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '4px',
-                }}
-            >
-                {showVideo ? '이미지로 돌아가기' : '영상 보기'}
-            </button>
+
+            <div>
+                {/* 유튜브 영상 */}
+                <div style={{ marginTop: '30px' }}>
+                    <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '10px' }}>게임 영상</h2>
+                    <ReactPlayer
+                        url="https://www.youtube.com/watch?v=O4eG3lgrS2I" // 이 부분은 원하는 영상 링크로 교체
+                        width="100%"
+                        height="360px"
+                        controls
+                    />
+                </div>
+                {/* ▼▼ 게임 대표 이미지(한 장) ▼▼ */}
+                <div style={{ marginTop: '20px' }}>
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 500, marginBottom: '8px' }}>
+                        게임 이미지
+                    </h3>
+
+                    <img
+                        src={game.image}           // ← 지금 games.js에 있는 image
+                        alt={`${game.title} 이미지`}
+                        style={{
+                            width: '100%',
+                            maxHeight: '220px',
+                            objectFit: 'cover',
+                            borderRadius: '6px',
+                            border: '1px solid #333',
+                        }}
+                    />
+                </div>
+
+            </div>
+            
+
 
             <hr style={{ margin: '20px 0', borderColor: '#555' }} />
 
@@ -107,12 +132,8 @@ const GameDetail = () => {
                         <td style={{ padding: '8px' }}>액션, RPG, 전략</td>
                     </tr>
                     <tr>
-                        <td
-                            style={{ padding: '8px', cursor: 'pointer' }}
-                            onClick={() => setShowModal(true)}
-                        >
-                            <strong>⭐ 별점:</strong>{' '}
-                            {userRating ? `${userRating}.0 / 5.0` : '4.5 / 5.0'}
+                        <td style={{ padding: '8px', cursor: 'pointer' }} onClick={() => setShowModal(true)}>
+                            <strong>⭐ 별점:</strong> {userRating ? `${userRating}.0 / 5.0` : '4.5 / 5.0'}
                         </td>
                         <td style={{ padding: '8px' }}>
                             <strong>🔥 좋아요 수:</strong> 1234
@@ -168,8 +189,7 @@ const GameDetail = () => {
                             transition: 'background-color 0.2s',
                         }}
                         onMouseOver={(e) => (e.target.style.backgroundColor = '#0056b3')}
-                        onMouseOut={(e) => (e.target.style.backgroundColor = '#007bff')}
-                    >
+                        onMouseOut={(e) => (e.target.style.backgroundColor = '#007bff')}>
                         댓글 작성
                     </button>
                 </div>
@@ -188,8 +208,7 @@ const GameDetail = () => {
                                     borderRadius: '4px',
                                     marginBottom: '10px',
                                     border: '1px solid #333',
-                                }}
-                            >
+                                }}>
                                 {comment}
                             </li>
                         ))
