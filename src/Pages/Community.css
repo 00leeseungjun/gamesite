@@ -1,0 +1,174 @@
+/* ---------- 전역 ---------- */
+:root {
+  --bg: #0d0d0d;
+  --surface: #1a1a1a;
+  --surface-hover: #2a2a2a;
+  --primary: #ffffff;
+  --secondary: #b3b3b3;
+  --accent: #5a8dff;
+  --border: #333;
+}
+
+body {
+  background: var(--bg);
+  color: var(--primary);
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* ---------- 컨테이너 ---------- */
+.community-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+/* ---------- 페이지 타이틀 ---------- */
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ---------- 상단 영역 (탭 + 검색/글쓰기) ---------- */
+.community-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* --- 카테고리 탭 --- */
+.category-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.category-button {
+  background: var(--surface);
+  color: var(--secondary);
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.category-button:hover {
+  background: var(--surface-hover);
+  color: var(--primary);
+}
+
+.category-button.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* --- 검색창 & 버튼 그룹 --- */
+.search-group {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.community-search-input {
+  width: 140px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.community-search-input:focus {
+  outline: 2px solid var(--accent);
+}
+
+.search-btn,
+.write-btn {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--primary);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.search-btn:hover,
+.write-btn:hover {
+  background: var(--surface-hover);
+}
+
+.write-btn {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.write-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* ---------- 구분선 ---------- */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 12px 0 8px;
+}
+
+/* ---------- 게시판 표 ---------- */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 0.9rem;
+}
+
+/* 표 헤더 */
+.post-header {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1.2fr 0.8fr 0.8fr;
+  padding: 8px 6px;
+  background: var(--surface-hover);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+/* 표 행 */
+.post-row {
+  display: grid;
+  grid-template-columns: 5fr 1fr 1.2fr 0.8fr 0.8fr;
+  gap: 6px;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.post-row:hover {
+  background: var(--surface-hover);
+  cursor: pointer;
+}
+
+.post-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-category {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* 게시글 없을 때 */
+.no-posts {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--secondary);
+}
+
