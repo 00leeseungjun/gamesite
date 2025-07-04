@@ -1,0 +1,50 @@
+.write-wrapper {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #121212;
+  border-radius: 12px;
+  color: white;
+}
+
+.write-editor {
+  min-height: 300px;
+  padding: 10px;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.toolbar {
+  margin-bottom: 10px;
+}
+
+.toolbar button {
+  margin-right: 8px;
+  padding: 6px 10px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toolbar button:hover {
+  background: #555;
+}
+
+.write-btn {
+  padding: 10px 16px;
+  background: #4caf50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.write-btn:hover {
+  background: #388e3c;
+}

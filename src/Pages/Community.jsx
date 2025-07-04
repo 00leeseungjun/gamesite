@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';        // 추가!
 import Fuse from 'fuse.js';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './Community.css';
@@ -66,30 +67,25 @@ const posts = [
     { id: 50, category: '질문', title: '게임 패스 가치 있을까?', author: '닉네임50', date: '2025.7.20', views: 69, likes: 10 },
 ];
 
-
 /* ---------------- 상수 ---------------- */
 const categories = ['전체글', '인기글', '자유', '질문'];
 const isPopular = (p) => p.views >= 50 || p.likes >= 10;
 const PAGE_SIZE = 20;
 
-/* ---------------- Fuse.js 설정 ---------------- */
-const fuse = new Fuse(posts, {
-    keys: ['title'],
-    threshold: 0.3,
-    ignoreLocation: true,
-});
+/* ---------------- Fuse.js ---------------- */
+const fuse = new Fuse(posts, { keys: ['title'], threshold: 0.3, ignoreLocation: true });
 
 function Community() {
+    const navigate = useNavigate();                       // ⬅️ 라우터 훅
     const [selectedCategory, setSelectedCategory] = useState('전체글');
     const [searchKeyword, setSearchKeyword] = useState('');
     const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
-    /* ---------- 검색 + 카테고리 ---------- */
+    /* 검색 + 탭 필터 */
     const filteredPosts = useMemo(() => {
-        const base =
-            searchKeyword.trim() === ''
-                ? posts
-                : fuse.search(searchKeyword).map((r) => r.item);
+        const base = searchKeyword.trim()
+            ? fuse.search(searchKeyword).map((r) => r.item)
+            : posts;
 
         return base.filter((p) => {
             if (selectedCategory === '전체글') return true;
@@ -98,17 +94,16 @@ function Community() {
         });
     }, [selectedCategory, searchKeyword]);
 
-    /* ---------- 무한 스크롤 ---------- */
+    /* 무한 스크롤 */
     const visiblePosts = filteredPosts.slice(0, visibleCount);
     const hasMore = visiblePosts.length < filteredPosts.length;
-    const fetchMore = () =>
-        setTimeout(() => setVisibleCount((prev) => prev + PAGE_SIZE), 400);
+    const fetchMore = () => setTimeout(() => setVisibleCount((v) => v + PAGE_SIZE), 400);
 
     return (
         <div className="community-container">
             <h1 className="page-title">커뮤니티</h1>
 
-            {/* 탭 + 검색창 */}
+            {/* 탭 + 검색 */}
             <div className="community-top">
                 <div className="category-buttons">
                     {categories.map((cat) => (
@@ -130,21 +125,23 @@ function Community() {
                         onChange={(e) => { setSearchKeyword(e.target.value); setVisibleCount(PAGE_SIZE); }}
                     />
                     <button className="search-btn">검색</button>
-                    <button className="write-btn">글쓰기</button>
+
+                    {/* 글쓰기 버튼 → /write 이동 */}
+                    <button className="write-btn" onClick={() => navigate('/write')}>
+                        글쓰기
+                    </button>
                 </div>
             </div>
 
             <hr className="divider" />
 
-            {/* 게시판 + 무한스크롤 */}
+            {/* 게시판 */}
             <div className="post-list">
                 <div className="post-header">
                     <div>제목</div><div>작성자</div><div>작성일</div><div>조회</div><div>추천</div>
                 </div>
 
-                {filteredPosts.length === 0 && (
-                    <div className="no-posts">게시글이 없습니다.</div>
-                )}
+                {filteredPosts.length === 0 && <div className="no-posts">게시글이 없습니다.</div>}
 
                 <InfiniteScroll
                     dataLength={visiblePosts.length}
