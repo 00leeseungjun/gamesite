@@ -32,6 +32,7 @@ import SearchBar from './components/SearchBar'
 import GameCard from './components/GameCard'
 import GameList from './components/GameList'
 
+
 // App.jsx 상단에 추가
 import { Link } from 'react-router-dom'
 

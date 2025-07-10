@@ -1,50 +1,194 @@
+/* ---------- 색상 변수 ---------- */
+:root {
+  --bg: #0d0d0d;
+  --surface: #1a1a1a;
+  --surface-hover: #2a2a2a;
+  --primary: #ffffff;
+  --secondary: #cccccc;
+  --accent: #5a8dff;
+  --border: #333;
+  --success: #28a745;
+
+  --control-h: 36px;
+  --radius: 6px;
+  --gap: 8px;
+}
+
+/* ---------- 기본 레이아웃 ---------- */
 .write-wrapper {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #121212;
-  border-radius: 12px;
-  color: white;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px;
+  color: var(--primary);
+  background: var(--bg);
 }
 
-.write-editor {
-  min-height: 300px;
-  padding: 10px;
-  background-color: #1e1e1e;
-  border: 1px solid #444;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  color: white;
-}
-
-.toolbar {
-  margin-bottom: 10px;
-}
-
-.toolbar button {
-  margin-right: 8px;
-  padding: 6px 10px;
-  background: #333;
-  color: white;
+/* 제목 */
+.title-input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1.25rem;
   border: none;
-  border-radius: 6px;
+  border-bottom: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--primary);
+  box-sizing: border-box;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.title-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* 카테고리 버튼 */
+.category-group {
+  margin: 16px 0;
+}
+
+.category-btn {
+  height: var(--control-h);
+  line-height: var(--control-h);
+  padding: 0 14px;
+  margin-right: var(--gap);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--secondary);
+  border-radius: var(--radius);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
 }
 
-.toolbar button:hover {
-  background: #555;
+.category-btn:hover {
+  background: var(--surface-hover);
+  color: var(--primary);
 }
 
+.category-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* 작성 완료 버튼 */
 .write-btn {
-  padding: 10px 16px;
-  background: #4caf50;
+  margin-top: 18px;
+  height: var(--control-h);
+  line-height: var(--control-h);
+  padding: 0 24px;
+  background: var(--success);
   border: none;
-  border-radius: 8px;
-  color: white;
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .write-btn:hover {
-  background: #388e3c;
+  filter: brightness(1.1);
+}
+
+/* ---------- 툴바 ---------- */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap);
+  background: var(--surface);
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  overflow-x: auto;
+}
+
+.tbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--surface-hover);
+  color: var(--secondary);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.tbtn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.tbtn.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 세로 구분선 */
+.divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+/* ---------- 컬러 & 사이즈 ---------- */
+.color-picker,
+.size-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 18px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.color-picker input[type='color'],
+.size-select select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ---------- 에디터 영역 ---------- */
+.write-editor {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.write-editor .ProseMirror {
+  min-height: 320px;
+  padding: 14px;
+  color: var(--primary);
+  outline: none;
+  font-size: 1rem;
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 640px) {
+  .title-input {
+    font-size: 1rem;
+  }
+
+  .tbtn {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .write-btn {
+    width: 100%;
+    padding: 0;
+  }
 }

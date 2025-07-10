@@ -133,7 +133,6 @@ function Community() {
                 </div>
             </div>
 
-            <hr className="divider" />
 
             {/* 게시판 */}
             <div className="post-list">
