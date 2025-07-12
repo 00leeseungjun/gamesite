@@ -1,25 +1,24 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import '../App.css'
-import games from '../data/games'
-import StarRatingModal from '../modals/StarRatingModal'
-import './GameDetail.css'
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import '../App.css';
+import games from '../data/games';
+import StarRatingModal from '../modals/StarRatingModal';
+import './GameDetail.css';
 import ReactPlayer from 'react-player';
-import Comments from '../components/Comments';   // 경로는 실제 위치에 맞춰 조정
-
+import Comments from '../components/Comments'; // 경로는 실제 위치에 맞춰 조정
 
 const GameDetail = () => {
-    const { id } = useParams()
-    const game = games.find((g) => g.id === parseInt(id))
-    const [showVideo, setShowVideo] = useState(false)
-    const [showModal, setShowModal] = useState(false)
-    const [userRating, setUserRating] = useState(null)
-    const [comments, setComments] = useState([])
-    const [newComment, setNewComment] = useState('')
+    const { id } = useParams();
+    const game = games.find((g) => g.id === parseInt(id));
+    const [showVideo, setShowVideo] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [userRating, setUserRating] = useState(null);
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState('');
 
-    if (!game) return <div>게임을 찾을 수 없습니다.</div>
+    if (!game) return <div>게임을 찾을 수 없습니다.</div>;
 
-    const transitionStyle = { transition: 'transform 0.5s ease-in-out' }
+    const transitionStyle = { transition: 'transform 0.5s ease-in-out' };
     const imageStyle = {
         ...transitionStyle,
         transform: showVideo ? 'translateX(100%)' : 'translateX(0)',
@@ -30,7 +29,7 @@ const GameDetail = () => {
         height: '100%',
         objectFit: 'cover',
         borderRadius: '8px',
-    }
+    };
     const videoStyle = {
         ...transitionStyle,
         transform: showVideo ? 'translateX(0)' : 'translateX(-100%)',
@@ -41,14 +40,14 @@ const GameDetail = () => {
         height: '100%',
         borderRadius: '8px',
         display: showVideo ? 'block' : 'none',
-    }
+    };
 
     const handleAddComment = () => {
         if (newComment.trim() !== '') {
-            setComments([...comments, newComment.trim()])
-            setNewComment('')
+            setComments([...comments, newComment.trim()]);
+            setNewComment('');
         }
-    }
+    };
 
     return (
         <div
@@ -59,7 +58,8 @@ const GameDetail = () => {
                 margin: '0 auto',
                 padding: '20px',
                 boxSizing: 'border-box',
-            }}>
+            }}
+        >
             <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px' }}>{game.title}</h1>
 
             <div
@@ -69,31 +69,29 @@ const GameDetail = () => {
                     maxHeight: '400px',
                     overflow: 'hidden',
                     borderRadius: '8px',
-                }}>
+                }}
+            >
                 <img src={game.image} alt={game.title} style={imageStyle} />
                 <video src={game.video} style={videoStyle} controls />
             </div>
 
-
             <div>
-                {/* 유튜브 영상 */}
                 <div style={{ marginTop: '30px' }}>
                     <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '10px' }}>게임 영상</h2>
                     <ReactPlayer
-                        url="https://www.youtube.com/watch?v=O4eG3lgrS2I" // 이 부분은 원하는 영상 링크로 교체
+                        url="https://www.youtube.com/watch?v=O4eG3lgrS2I"
                         width="100%"
                         height="360px"
                         controls
                     />
                 </div>
-                {/* ▼▼ 게임 대표 이미지(한 장) ▼▼ */}
+
                 <div style={{ marginTop: '20px' }}>
                     <h3 style={{ fontSize: '1.25rem', fontWeight: 500, marginBottom: '8px' }}>
                         게임 이미지
                     </h3>
-
                     <img
-                        src={game.image}           // ← 지금 games.js에 있는 image
+                        src={game.image}
                         alt={`${game.title} 이미지`}
                         style={{
                             width: '100%',
@@ -104,10 +102,7 @@ const GameDetail = () => {
                         }}
                     />
                 </div>
-
             </div>
-
-
 
             <hr style={{ margin: '20px 0', borderColor: '#555' }} />
 
@@ -115,23 +110,23 @@ const GameDetail = () => {
                 <tbody>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>출시일</td>
-                        <td style={{ padding: '8px' }}>2024.01.01</td>
+                        <td style={{ padding: '8px' }}>{game.releaseDate}</td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>개발사</td>
-                        <td style={{ padding: '8px' }}>예시 스튜디오</td>
+                        <td style={{ padding: '8px' }}>{game.developer}</td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>플레이방식</td>
-                        <td style={{ padding: '8px' }}>싱글 / 멀티</td>
+                        <td style={{ padding: '8px' }}>{game.playType}</td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>진행방식</td>
-                        <td style={{ padding: '8px' }}>실시간 전투</td>
+                        <td style={{ padding: '8px' }}>{game.progressType}</td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>태그</td>
-                        <td style={{ padding: '8px' }}>액션, RPG, 전략</td>
+                        <td style={{ padding: '8px' }}>{game.tags.join(', ')}</td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', cursor: 'pointer' }} onClick={() => setShowModal(true)}>
@@ -159,21 +154,19 @@ const GameDetail = () => {
             </div>
 
             {/* 댓글 영역 */}
-            {/* 댓글 영역 */}
             <Comments />
-
 
             {showModal && (
                 <StarRatingModal
                     onClose={() => setShowModal(false)}
                     onSubmit={(rating) => {
-                        setUserRating(rating)
-                        setShowModal(false)
+                        setUserRating(rating);
+                        setShowModal(false);
                     }}
                 />
             )}
         </div>
-    )
-}
+    );
+};
 
-export default GameDetail
+export default GameDetail;
