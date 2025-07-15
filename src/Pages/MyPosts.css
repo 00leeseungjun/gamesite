@@ -1,0 +1,64 @@
+/* ---------- 기본 설정 ---------- */
+.myposts-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  color: var(--primary);
+}
+
+.myposts-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.myposts-empty {
+  color: var(--secondary);
+  padding: 16px;
+}
+
+/* ---------- 테이블 ---------- */
+.myposts-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.myposts-table-header,
+.myposts-row {
+  display: grid;
+  grid-template-columns: 5fr 1.2fr 1fr 1fr;
+  gap: 6px;
+  padding: 10px 6px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.myposts-table-header {
+  background: var(--surface-hover);
+  font-weight: 600;
+}
+
+.myposts-row:hover {
+  background: var(--surface-hover);
+  cursor: pointer;
+}
+
+/* ---------- 칼럼 ---------- */
+.myposts-col-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.myposts-category {
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.myposts-col-date,
+.myposts-col-views,
+.myposts-col-likes {
+  text-align: left;
+}

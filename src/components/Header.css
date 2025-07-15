@@ -26,6 +26,12 @@
   font-size: 0.9rem;
 }
 
+.login-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 .login-btn {
   background-color: white;
   color: black;
@@ -34,4 +40,9 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+}
+
+.orange-btn {
+  background-color: orange;
+  color: black;
 }

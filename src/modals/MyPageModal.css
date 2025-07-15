@@ -1,0 +1,43 @@
+.mypage-modal {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.mypage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mypage-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mypage-menu li {
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+.mypage-menu li:hover {
+    color: #ffa500;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
