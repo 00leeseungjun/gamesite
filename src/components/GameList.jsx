@@ -5,7 +5,7 @@ import './GameList.css'
 
 // 게임 목록 (id 포함)
 /* ---------- 원본 게임 목록( id 제외 ) ---------- */
-const baseGames = [
+export const baseGames = [
     {
         title: '리그오브레전드',
         image: 'https://cdn.gameple.co.kr/news/photo/202501/211554_232322_4045.jpg',

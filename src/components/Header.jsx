@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import LoginModal from '../modals/LoginModal';
 import MyPageModal from '../modals/MyPageModal';
@@ -7,6 +7,16 @@ import MyPageModal from '../modals/MyPageModal';
 function Header() {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showMyPageModal, setShowMyPageModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate(); // 🔍 검색 시 페이지 이동을 위해
+
+    // 🔍 검색 폼 제출 처리
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (searchTerm.trim() !== '') {
+            navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+        }
+    };
 
     return (
         <>
@@ -20,7 +30,6 @@ function Header() {
                     <a href="#chat">채팅</a>
                 </nav>
 
-                {/* ✅ 로그인 버튼 그룹 */}
                 <div className="login-group">
                     <button
                         className="login-btn orange-btn"
@@ -38,7 +47,16 @@ function Header() {
                 </div>
             </header>
 
-            {/* 모달들 */}
+            {/* 🔍 검색창은 form + 상태 관리 + submit 이벤트로 처리 */}
+            <form onSubmit={handleSearchSubmit} className="search-container">
+                <input
+                    className="search-input"
+                    placeholder="게임을 검색해보세요"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </form>
+
             {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
             {showMyPageModal && <MyPageModal onClose={() => setShowMyPageModal(false)} />}
         </>

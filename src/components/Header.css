@@ -46,3 +46,19 @@
   background-color: orange;
   color: black;
 }
+
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  padding: 12px 0;
+}
+
+.search-input {
+  width: 90%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
