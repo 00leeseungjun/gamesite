@@ -13,6 +13,7 @@ import WriteEditor from './Pages/WriteEditor';
 import PostDetail from './Pages/PostDetail'; // ✅ 추가
 import MyPosts from './Pages/MyPosts'
 import SearchResults from './Pages/SearchResults';
+import MyScraps from './Pages/MyScraps'; 
 
 createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/post/:id" element={<PostDetail />} /> {/* ✅ 상세 페이지 라우트 추가 */}
                 <Route path="/myposts" element={<MyPosts />} />
                 <Route path="/search" element={<SearchResults />} />
+                <Route path="/scraps" element={<MyScraps />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

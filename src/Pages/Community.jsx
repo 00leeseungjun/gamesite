@@ -56,7 +56,7 @@ export const posts = [
     { id: 48, category: '자유', title: '엔딩 크레딧에서 눈물', author: '닉네임48', date: '2025.7.18', views: 142, likes: 25, content: '진짜 감동적인 게임 엔딩... 눈물 나네요.', scrapped: false },
     { id: 49, category: '자유', title: '패치노트 요약', author: '닉네임49', date: '2025.7.19', views: 36, likes: 5, content: '이번 패치노트 요약본 공유드립니다.', scrapped: false },
     { id: 50, category: '질문', title: '게임 패스 가치 있을까?', author: '닉네임50', date: '2025.7.20', views: 69, likes: 10, content: '게임패스 구독할 만한 가치가 있을까요?', scrapped: false }
-    
+
 ];
 
 /* ---------------- 더미 게시글 ---------------- */
