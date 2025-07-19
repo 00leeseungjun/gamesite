@@ -1,4 +1,4 @@
-// src/pages/LikedGames.jsx
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { baseGames } from '../components/GameList'
