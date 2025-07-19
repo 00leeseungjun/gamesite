@@ -8,9 +8,8 @@ function Header() {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showMyPageModal, setShowMyPageModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-    const navigate = useNavigate(); // 🔍 검색 시 페이지 이동을 위해
+    const navigate = useNavigate();
 
-    // 🔍 검색 폼 제출 처리
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         if (searchTerm.trim() !== '') {
@@ -32,14 +31,14 @@ function Header() {
 
                 <div className="login-group">
                     <button
-                        className="login-btn orange-btn"
+                        className="header-login-btn orange-btn"
                         onClick={() => setShowMyPageModal(true)}
                     >
                         로그인 했다 치고!
                     </button>
 
                     <button
-                        className="login-btn"
+                        className="header-login-btn"
                         onClick={() => setShowLoginModal(true)}
                     >
                         로그인
@@ -47,7 +46,6 @@ function Header() {
                 </div>
             </header>
 
-            {/* 🔍 검색창은 form + 상태 관리 + submit 이벤트로 처리 */}
             <form onSubmit={handleSearchSubmit} className="search-container">
                 <input
                     className="search-input"

@@ -14,6 +14,7 @@ import PostDetail from './Pages/PostDetail'; // ✅ 추가
 import MyPosts from './Pages/MyPosts'
 import SearchResults from './Pages/SearchResults';
 import MyScraps from './Pages/MyScraps'; 
+import LikedGames from './Pages/LikedGames'
 
 createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -30,6 +31,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/myposts" element={<MyPosts />} />
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/scraps" element={<MyScraps />} />
+                <Route path="/liked" element={<LikedGames />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

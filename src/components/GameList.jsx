@@ -15,6 +15,7 @@ export const baseGames = [
         progressType: 'MOBA / 실시간 전투',
         tags: ['MOBA', '전략', '팀플레이'],
         platforms: ['PC'],
+        isLiked: true
     },
     {
         title: '배틀그라운드',
@@ -25,6 +26,7 @@ export const baseGames = [
         progressType: '배틀로얄 / FPS',
         tags: ['FPS', '서바이벌'],
         platforms: ['PC', 'PS4', 'Xbox One'],
+        isLiked: false
     },
     {
         title: '메이플 스토리',
@@ -35,6 +37,7 @@ export const baseGames = [
         progressType: '2D 액션 RPG',
         tags: ['RPG', '캐주얼', '도트'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '서든어택',
@@ -45,6 +48,7 @@ export const baseGames = [
         progressType: '온라인 FPS',
         tags: ['FPS', 'e스포츠'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '로스트아크',
@@ -55,6 +59,7 @@ export const baseGames = [
         progressType: '핵앤슬래시 MMORPG',
         tags: ['MMORPG', '핵앤슬래시'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '디아블로 4',
@@ -65,6 +70,7 @@ export const baseGames = [
         progressType: '핵앤슬래시 ARPG',
         tags: ['RPG', '핵앤슬래시', '다크판타지'],
         platforms: ['PC', 'PS5', 'Xbox Series X|S'],
+        isLiked: true
     },
     {
         title: '발로란트',
@@ -75,6 +81,7 @@ export const baseGames = [
         progressType: '5v5 전술 FPS',
         tags: ['FPS', '전술', 'e스포츠'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '에이펙스 레전드',
@@ -85,6 +92,7 @@ export const baseGames = [
         progressType: '배틀로얄 FPS',
         tags: ['FPS', '배틀로얄'],
         platforms: ['PC', 'PS4', 'Xbox One', 'Switch'],
+        isLiked: false
     },
     {
         title: '마인크래프트',
@@ -95,6 +103,7 @@ export const baseGames = [
         progressType: '샌드박스 / 생존',
         tags: ['샌드박스', '건축', '생존'],
         platforms: ['PC', '콘솔', '모바일'],
+        isLiked: false
     },
     {
         title: '포트나이트',
@@ -105,6 +114,7 @@ export const baseGames = [
         progressType: '배틀로얄 / 샌드박스',
         tags: ['배틀로얄', '샌드박스'],
         platforms: ['PC', 'PS5', 'Xbox', 'Switch', 'Mobile'],
+        isLiked: false
     },
     {
         title: '어몽 어스',
@@ -115,6 +125,7 @@ export const baseGames = [
         progressType: '파티 / 추리',
         tags: ['파티', '추리'],
         platforms: ['PC', 'Mobile', 'Switch'],
+        isLiked: false
     },
     {
         title: '테라리아',
@@ -125,6 +136,7 @@ export const baseGames = [
         progressType: '2D 샌드박스 / 생존',
         tags: ['샌드박스', '생존', '도트'],
         platforms: ['PC', '콘솔', '모바일'],
+        isLiked: false
     },
     {
         title: '모여봐요 동물의 숲',
@@ -135,6 +147,7 @@ export const baseGames = [
         progressType: '슬로우 라이프 / 샌드박스',
         tags: ['샌드박스', '슬로우라이프'],
         platforms: ['Switch'],
+        isLiked: false
     },
     {
         title: '콜 오브 듀티: 모던 워페어',
@@ -145,6 +158,7 @@ export const baseGames = [
         progressType: 'FPS / 캠페인',
         tags: ['FPS', '현대전'],
         platforms: ['PC', 'PS4', 'Xbox One'],
+        isLiked: false
     },
     {
         title: '몬스터 헌터: 월드',
@@ -155,6 +169,7 @@ export const baseGames = [
         progressType: '액션 RPG / 헌팅',
         tags: ['ARPG', '헌팅'],
         platforms: ['PC', 'PS4', 'Xbox One'],
+        isLiked: true
     },
     {
         title: '오버워치 2',
@@ -165,6 +180,7 @@ export const baseGames = [
         progressType: '6v6 팀 FPS',
         tags: ['FPS', '팀플레이'],
         platforms: ['PC', 'PS5', 'Xbox', 'Switch'],
+        isLiked: false
     },
     {
         title: '슈퍼 마리오 오디세이',
@@ -175,6 +191,7 @@ export const baseGames = [
         progressType: '3D 플랫폼',
         tags: ['플랫포머', '어드벤처'],
         platforms: ['Switch'],
+        isLiked: false
     },
     {
         title: '엘든 링',
@@ -185,6 +202,7 @@ export const baseGames = [
         progressType: '오픈월드 ARPG',
         tags: ['ARPG', '오픈월드', '소울라이크'],
         platforms: ['PC', 'PS5', 'Xbox Series X|S'],
+        isLiked: false
     },
     {
         title: '사이버펑크 2077',
@@ -195,6 +213,7 @@ export const baseGames = [
         progressType: '오픈월드 RPG',
         tags: ['RPG', '오픈월드', 'SF'],
         platforms: ['PC', 'PS5', 'Xbox Series X|S'],
+        isLiked: true
     },
     {
         title: '더 위쳐 3: 와일드 헌트',
@@ -205,6 +224,7 @@ export const baseGames = [
         progressType: '오픈월드 RPG',
         tags: ['RPG', '오픈월드', '판타지'],
         platforms: ['PC', 'PS5', 'Xbox', 'Switch'],
+        isLiked: false
     },
     {
         title: '스타크래프트 2',
@@ -215,6 +235,7 @@ export const baseGames = [
         progressType: 'RTS',
         tags: ['RTS', 'e스포츠', 'SF'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '라스트 오브 어스',
@@ -225,6 +246,7 @@ export const baseGames = [
         progressType: '액션 어드벤처',
         tags: ['어드벤처', '스토리', '좀비'],
         platforms: ['PS4', 'PC'],
+        isLiked: false
     },
     {
         title: '포탈',
@@ -235,6 +257,7 @@ export const baseGames = [
         progressType: '1인칭 퍼즐',
         tags: ['퍼즐', 'FPS'],
         platforms: ['PC', '콘솔'],
+        isLiked: true
     },
     {
         title: '포탈 2',
@@ -245,6 +268,7 @@ export const baseGames = [
         progressType: '1인칭 퍼즐',
         tags: ['퍼즐', 'FPS', '협동'],
         platforms: ['PC', '콘솔'],
+        isLiked: false
     },
     {
         title: '언더테일',
@@ -255,6 +279,7 @@ export const baseGames = [
         progressType: '2D RPG',
         tags: ['RPG', '인디', '스토리'],
         platforms: ['PC', '콘솔', 'Switch'],
+        isLiked: false
     },
     {
         title: '니어 : 오토마타',
@@ -265,6 +290,7 @@ export const baseGames = [
         progressType: '액션 RPG',
         tags: ['ARPG', 'SF', '스토리'],
         platforms: ['PC', 'PS4', 'Xbox One', 'Switch'],
+        isLiked: false
     },
     {
         title: '심즈 4',
@@ -275,6 +301,7 @@ export const baseGames = [
         progressType: '생활 시뮬레이션',
         tags: ['시뮬레이션', '샌드박스'],
         platforms: ['PC', '콘솔'],
+        isLiked: false
     },
     {
         title: '그랜드 체이스',
@@ -285,6 +312,7 @@ export const baseGames = [
         progressType: '2D 액션 RPG',
         tags: ['ARPG', '온라인'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '엘소드',
@@ -295,6 +323,7 @@ export const baseGames = [
         progressType: '2.5D 액션 RPG',
         tags: ['ARPG', '온라인'],
         platforms: ['PC'],
+        isLiked: true
     },
     {
         title: '레드 데드 리뎀션',
@@ -305,6 +334,7 @@ export const baseGames = [
         progressType: '오픈월드 웨스턴',
         tags: ['어드벤처', '웨스턴'],
         platforms: ['PS3', 'Xbox 360'],
+        isLiked: false
     },
     {
         title: '레드 데드 리뎀션 2',
@@ -315,6 +345,7 @@ export const baseGames = [
         progressType: '오픈월드 웨스턴',
         tags: ['어드벤처', '웨스턴', '오픈월드'],
         platforms: ['PC', 'PS4', 'Xbox One'],
+        isLiked: false
     },
     {
         title: '브롤 스타즈',
@@ -325,6 +356,7 @@ export const baseGames = [
         progressType: '3v3 슈팅',
         tags: ['MOBA', '캐주얼'],
         platforms: ['Mobile'],
+        isLiked: false
     },
     {
         title: '클로저스',
@@ -335,6 +367,7 @@ export const baseGames = [
         progressType: '2.5D 액션 RPG',
         tags: ['ARPG', '온라인', '애니'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '던전 앤 파이터',
@@ -345,6 +378,7 @@ export const baseGames = [
         progressType: '2D 액션 RPG',
         tags: ['ARPG', '온라인', '도트'],
         platforms: ['PC'],
+        isLiked: false
     },
     {
         title: '다크 소울',
@@ -355,8 +389,10 @@ export const baseGames = [
         progressType: '액션 RPG / 소울라이크',
         tags: ['ARPG', '소울라이크', '다크판타지'],
         platforms: ['PC', 'PS3', 'Xbox 360'],
+        isLiked: true
     },
 ];
+
 
 /* ---------- id 자동 부여 ---------- */
 const games = baseGames.map((game, index) => ({ id: index + 1, ...game }));

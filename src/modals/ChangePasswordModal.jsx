@@ -1,22 +1,19 @@
-// src/modals/ChangePasswordModal.jsx
 import React from 'react';
-import './ChangePasswordModal.css'; // ✅ 스타일 따로 있다면
+import './ChangePasswordModal.css';
 
 function ChangePasswordModal({ onClose }) {
     return (
-        <div className="App">
+        <div className="modal-overlay">
             <div className="modal">
-                <div className="modal-header">
-                    <h4>비밀번호 변경</h4>
-                    <button onClick={onClose} className="close-btn">×</button> {/* ✅ 닫기 버튼 */}
-                </div>
+                <h4 className="modal-title">비밀번호 변경</h4>
                 <div className="modalSpace">
-                    <input placeholder="이전 비밀번호" className="id" />
-                    <input placeholder="새로운 비밀번호" className="email" />
-                    <input placeholder="비밀번호 확인" className="email" />
+                    <input type="password" placeholder="이전 비밀번호" className="input" />
+                    <input type="password" placeholder="새로운 비밀번호" className="input" />
+                    <input type="password" placeholder="비밀번호 확인" className="input" />
                 </div>
-                <div className="acountOptions">
-                    <button className="submit-btn">변경하기</button>
+                <div className="button-row">
+                    <button className="save-btn">저장하기</button>
+                    <button className="cancel-btn" onClick={onClose}>취소</button>
                 </div>
             </div>
         </div>

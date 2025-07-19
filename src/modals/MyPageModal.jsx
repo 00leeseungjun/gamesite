@@ -2,11 +2,14 @@
 import React, { useState } from 'react';
 import './MyPageModal.css';
 import { useNavigate } from 'react-router-dom';
-import ChangePasswordModal from './ChangePasswordModal'; // ✅ 모달 불러오기
+import ChangePasswordModal from './ChangePasswordModal';
+import ModifyInfoModal from './ModifyInfoModal';
 
 function MyPageModal({ onClose }) {
     const navigate = useNavigate();
-    const [showChangePasswordModal, setShowChangePasswordModal] = useState(false); // ✅ 상태 추가
+
+    const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
+    const [showModifyInfoModal, setShowModifyInfoModal] = useState(false);
 
     const goToMyPosts = () => {
         onClose();
@@ -26,6 +29,19 @@ function MyPageModal({ onClose }) {
         setShowChangePasswordModal(false);
     };
 
+    const openModifyInfoModal = () => {
+        setShowModifyInfoModal(true);
+    };
+
+    const closeModifyInfoModal = () => {
+        setShowModifyInfoModal(false);
+    };
+
+    const goToLikedGames = () => {
+        onClose();
+        navigate('/liked'); // ✅ 찜한 게임들 페이지로 이동
+    };
+
     return (
         <>
             <div className="mypage-modal">
@@ -35,9 +51,9 @@ function MyPageModal({ onClose }) {
                         <button className="close-btn" onClick={onClose}>×</button>
                     </div>
                     <ul className="mypage-menu">
-                        <li>정보 수정</li>
-                        <li onClick={openChangePasswordModal}>비밀번호 변경</li> {/* ✅ 클릭 시 모달 오픈 */}
-                        <li>찜한 게임</li>
+                        <li onClick={openModifyInfoModal}>정보 수정</li>
+                        <li onClick={openChangePasswordModal}>비밀번호 변경</li>
+                        <li onClick={goToLikedGames}>찜한 게임</li> {/* ✅ 추가됨 */}
                         <hr />
                         <li onClick={goToMyPosts}>내가 쓴 게시글</li>
                         <li>내가 쓴 댓글</li>
@@ -48,9 +64,12 @@ function MyPageModal({ onClose }) {
                 </div>
             </div>
 
-            {/* ✅ ChangePasswordModal을 조건부 렌더링 */}
             {showChangePasswordModal && (
                 <ChangePasswordModal onClose={closeChangePasswordModal} />
+            )}
+
+            {showModifyInfoModal && (
+                <ModifyInfoModal onClose={closeModifyInfoModal} />
             )}
         </>
     );
