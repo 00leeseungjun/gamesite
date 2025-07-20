@@ -1,5 +1,4 @@
-/* src/modals/LoginModal.css */
-
+/* src/modals/SignupModal.css */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -17,31 +16,24 @@
   background-color: black;
   padding: 30px;
   border-radius: 12px;
-  width: 360px;
+  width: 400px;
   color: white;
   box-shadow: 0 0 10px #333;
-  position: relative;
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 .modal-title {
   font-size: 24px;
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.login-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-bottom: 25px;
 }
 
 .close-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
   background: none;
   border: none;
   color: white;
@@ -79,16 +71,4 @@
   font-weight: bold;
   cursor: pointer;
   font-size: 15px;
-}
-
-.account-options {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  font-size: 12px;
-  color: gray;
-}
-
-.account-options span {
-  cursor: pointer;
 }

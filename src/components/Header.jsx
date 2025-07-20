@@ -1,12 +1,19 @@
+// src/components/Header.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import LoginModal from '../modals/LoginModal';
 import MyPageModal from '../modals/MyPageModal';
+import FindIdModal from '../modals/FindIdModal';
+import FindPasswordModal from '../modals/FindPasswordModal';
+import SignupModal from '../modals/SignupModal';
 
 function Header() {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showMyPageModal, setShowMyPageModal] = useState(false);
+    const [showFindIdModal, setShowFindIdModal] = useState(false);
+    const [showFindPasswordModal, setShowFindPasswordModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
@@ -30,17 +37,11 @@ function Header() {
                 </nav>
 
                 <div className="login-group">
-                    <button
-                        className="header-login-btn orange-btn"
-                        onClick={() => setShowMyPageModal(true)}
-                    >
+                    <button className="header-login-btn orange-btn" onClick={() => setShowMyPageModal(true)}>
                         로그인 했다 치고!
                     </button>
 
-                    <button
-                        className="header-login-btn"
-                        onClick={() => setShowLoginModal(true)}
-                    >
+                    <button className="header-login-btn" onClick={() => setShowLoginModal(true)}>
                         로그인
                     </button>
                 </div>
@@ -55,7 +56,26 @@ function Header() {
                 />
             </form>
 
-            {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
+            {showLoginModal && (
+                <LoginModal
+                    onClose={() => setShowLoginModal(false)}
+                    onOpenFindId={() => {
+                        setShowLoginModal(false);
+                        setShowFindIdModal(true);
+                    }}
+                    onOpenFindPassword={() => {
+                        setShowLoginModal(false);
+                        setShowFindPasswordModal(true);
+                    }}
+                    onOpenSignup={() => {
+                        setShowLoginModal(false);
+                        setShowSignupModal(true);
+                    }}
+                />
+            )}
+            {showFindIdModal && <FindIdModal onClose={() => setShowFindIdModal(false)} />}
+            {showFindPasswordModal && <FindPasswordModal onClose={() => setShowFindPasswordModal(false)} />}
+            {showSignupModal && <SignupModal onClose={() => setShowSignupModal(false)} />}
             {showMyPageModal && <MyPageModal onClose={() => setShowMyPageModal(false)} />}
         </>
     );
