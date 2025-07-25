@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Header from './components/Header' // ← Header import
-
+import Nav from './components/Nav'
 import App from './App'
 import GameDetail from './Pages/GameDetail'
 import Community from './Pages/Community' // 🔹 추가
@@ -15,11 +15,12 @@ import MyPosts from './Pages/MyPosts'
 import SearchResults from './Pages/SearchResults';
 import MyScraps from './Pages/MyScraps'; 
 import LikedGames from './Pages/LikedGames'
+import MyComments from './Pages/MyComments';
 
 createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
-            <Header></Header>
+            <Nav></Nav>
             
             <Routes>
                 <Route path="/" element={<App />} />
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/scraps" element={<MyScraps />} />
                 <Route path="/liked" element={<LikedGames />} />
+                <Route path="/my-comments" element={<MyComments />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,
