@@ -31,7 +31,7 @@ import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import GameCard from './components/GameCard'
 import GameList from './components/GameList'
-
+import GameListTest from './components/GameListTest'
 
 // App.jsx 상단에 추가
 import { Link } from 'react-router-dom'

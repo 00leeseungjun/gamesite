@@ -27,7 +27,7 @@ const MyScraps = () => {
                         <div
                             key={post.id}
                             className="myposts-row"
-                            onClick={() => navigate(`/post/${post.id}`)}
+                            onClick={() => navigate(`/community/post/${post.id}`)}
                         >
                             <div className="myposts-col-title">
                                 <span className="myposts-category">[{post.category}]</span> {post.title}

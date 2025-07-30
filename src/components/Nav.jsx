@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // ✅ useNavigate 추가
 import "./Nav.css";
 
 // 🔽 모달 import
@@ -7,7 +7,7 @@ import LoginModal from "../modals/LoginModal";
 import FindIdModal from "../modals/FindIdModal";
 import FindPasswordModal from "../modals/FindPasswordModal";
 import SignupModal from "../modals/SignupModal";
-import MyPageModal from "../modals/MyPageModal"; // ✅ 추가
+import MyPageModal from "../modals/MyPageModal";
 
 const menuData = {
     "장르 별 게임": { type: "genre", items: ["액션", "어드벤쳐", "롤플레잉", "시뮬레이션", "스포츠/레이싱", "퍼즐/보드", "리듬"] },
@@ -21,10 +21,11 @@ const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openSubMenu, setOpenSubMenu] = useState(null);
     const menuRef = useRef(null);
+    const navigate = useNavigate(); // ✅ useNavigate 훅 사용
 
     // 🔽 모달 상태
     const [showLoginModal, setShowLoginModal] = useState(false);
-    const [showMyPageModal, setShowMyPageModal] = useState(false); // ✅ 추가
+    const [showMyPageModal, setShowMyPageModal] = useState(false);
     const [showFindIdModal, setShowFindIdModal] = useState(false);
     const [showFindPasswordModal, setShowFindPasswordModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
@@ -36,7 +37,6 @@ const Nav = () => {
                 setOpenSubMenu(null);
             }
         };
-
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
@@ -59,16 +59,17 @@ const Nav = () => {
                     </Link>
 
                     <button onClick={toggleMenu} className="nav-btn">카테고리</button>
-                    <div className="nav-btn">커뮤니티</div>
-                    <div className="nav-btn">뉴스</div>
-                    <div className="nav-btn">채팅</div>
+                    <Link to="/community">커뮤니티</Link>
+                    <Link to="/news">뉴스</Link>
+                    <a href="#chat">채팅</a>
+                    
 
-                    {/* 🔽 "로그인" 버튼 */}
+                    {/* 🔽 로그인 버튼 */}
                     <button className="nav-login-btn" onClick={() => setShowLoginModal(true)}>
                         로그인
                     </button>
 
-                    {/* 🔽 "로그인 했다 치고!" 버튼 */}
+                    {/* 🔽 테스트용 로그인 */}
                     <button className="nav-login-btn orange-btn" onClick={() => setShowMyPageModal(true)}>
                         로그인 했다 치고!
                     </button>

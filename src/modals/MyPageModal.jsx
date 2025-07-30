@@ -1,4 +1,3 @@
-// src/modals/MyPageModal.jsx
 import React, { useState } from 'react';
 import './MyPageModal.css';
 import { useNavigate } from 'react-router-dom';
@@ -21,6 +20,16 @@ function MyPageModal({ onClose }) {
         navigate('/scraps');
     };
 
+    const goToLikedGames = () => {
+        onClose();
+        navigate('/liked');
+    };
+
+    const goToMyComments = () => {
+        onClose();
+        navigate('/my-comments'); // ✅ 내가 쓴 댓글 페이지로 이동
+    };
+
     const openChangePasswordModal = () => {
         setShowChangePasswordModal(true);
     };
@@ -37,11 +46,6 @@ function MyPageModal({ onClose }) {
         setShowModifyInfoModal(false);
     };
 
-    const goToLikedGames = () => {
-        onClose();
-        navigate('/liked'); // ✅ 찜한 게임들 페이지로 이동
-    };
-
     return (
         <>
             <div className="mypage-modal">
@@ -53,10 +57,10 @@ function MyPageModal({ onClose }) {
                     <ul className="mypage-menu">
                         <li onClick={openModifyInfoModal}>정보 수정</li>
                         <li onClick={openChangePasswordModal}>비밀번호 변경</li>
-                        <li onClick={goToLikedGames}>찜한 게임</li> {/* ✅ 추가됨 */}
+                        <li onClick={goToLikedGames}>찜한 게임</li>
                         <hr />
                         <li onClick={goToMyPosts}>내가 쓴 게시글</li>
-                        <li>내가 쓴 댓글</li>
+                        <li onClick={goToMyComments}>내가 쓴 댓글</li> {/* ✅ 여기를 추가 */}
                         <li onClick={goToScraps}>스크랩한 게시글</li>
                         <hr />
                         <li>로그아웃</li>

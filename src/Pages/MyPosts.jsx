@@ -7,7 +7,7 @@ const MyPosts = () => {
     const navigate = useNavigate();
     const currentUser = '닉네임1'; // 로그인된 사용자
 
-    const myPosts = posts.filter((post) => post.author === currentUser);
+    const myPosts = posts.filter((post) => post.user_id === currentUser);
 
     return (
         <div className="myposts-container">
@@ -27,7 +27,7 @@ const MyPosts = () => {
                         <div
                             key={post.id}
                             className="myposts-row"
-                            onClick={() => navigate(`/post/${post.id}`)}
+                            onClick={() => navigate(`/community/post/${post.id}`)}
                         >
                             <div className="myposts-col-title">
                                 <span className="myposts-category">[{post.category}]</span> {post.title}

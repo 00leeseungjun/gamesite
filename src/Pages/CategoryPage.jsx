@@ -10,7 +10,7 @@ const CategoryPage = () => {
     const keyMap = {
         genre: 'genre',
         theme: 'theme',
-        platform: 'game_platforms',
+        platform: 'platform',
         play: 'playType',
         flow: 'progressType',
     };

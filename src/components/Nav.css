@@ -1,104 +1,128 @@
+/* 최상단 내비게이션 */
 .nav {
-  width: 100%;
-  background-color: black;
-  color: white;
-  padding: 1rem 0;
-  position: relative;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* 내부 컨테이너 */
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+/* 좌측 로고 */
 .nav-title {
-  font-size: 2rem;
-  font-weight: bold;
-  flex: 1;
-  text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
 }
 
+/* 중앙 메뉴 */
 .nav-btn {
-  font-size: 1.5rem;
-  cursor: pointer;
+    background: none;
+    border: none;
+    color: #aaa;
+    margin-left: 16px;
+    font-size: 0.95rem;
+    cursor: pointer;
 }
 
-.nav-login-btn {
-  color: white;
-  border: 1px solid white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.375rem;
-  transition: background 0.3s, color 0.3s;
-  cursor: pointer;
+.nav-btn:hover {
+    color: #fff;
 }
 
-.nav-login-btn:hover {
-  background-color: white;
-  color: black;
+/* 오른쪽 로그인 버튼 영역 */
+.nav-login-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+/* 로그인 버튼 스타일 */
+.nav-login-btn,
+.orange-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    font-weight: 500;
+}
+
+.nav-login-btn:hover,
+.orange-btn:hover {
+    background-color: #ddd;
+}
+
+/* 검색창 */
 .nav-search-container {
-  max-width: 1200px;
-  margin: 0 auto 1rem auto;
-  padding: 0 1rem;
+    margin-top: 12px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .nav-search-input {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #555;
-  border-radius: 9999px;
-  background-color: white;
-  color: black;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    border: none;
 }
 
+/* 드롭다운 메뉴 */
 .nav-menu-wrapper {
-  display: flex;
-  justify-content: center;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.nav-menu {
-  width: 92%;
-  background-color: black;
-  color: #ccc;
-  font-weight: bold;
-  font-size: 1.25rem;
-  border-radius: 0.5rem;
-  margin-top: 0.5rem;
-  padding: 1rem;
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-category {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
-
-.nav-category:hover {
-  background-color: #444;
+    margin-bottom: 16px;
 }
 
 .nav-category-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav-submenu {
-  margin-left: 1rem;
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #aaa;
+    margin-left: 12px;
 }
 
 .nav-submenu-item {
-  padding: 0.25rem 0;
+    margin-bottom: 6px;
 }
 
-.nav-submenu-item:hover {
-  color: white;
+.nav-submenu-item a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.nav-submenu-item a:hover {
+    color: #fff;
 }
