@@ -80,9 +80,9 @@ const Nav = () => {
                     </Link>
 
                     <button onClick={toggleMenu} className="nav-btn">카테고리</button>
-                    <Link to="/community">커뮤니티</Link>
-                    <Link to="/news">뉴스</Link>
-                    <a href="#chat">채팅</a>
+                    <Link to="/community" className="nav-btn">커뮤니티</Link>
+                    <Link to="/news"className="nav-btn">뉴스</Link>
+                    <a href="#chat" className="nav-btn">채팅</a>
 
                     <button className="nav-login-btn" onClick={() => setShowLoginModal(true)}>
                         로그인
