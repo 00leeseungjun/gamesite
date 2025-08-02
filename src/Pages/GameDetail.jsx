@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../App.css';
 import games from '../data/games';
 import StarRatingModal from '../modals/StarRatingModal';
@@ -9,6 +9,7 @@ import Comments from '../components/Comments';
 
 const GameDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const game = games.find((g) => g.id === parseInt(id));
     const [showVideo, setShowVideo] = useState(false);
     const [showModal, setShowModal] = useState(false);
@@ -50,6 +51,12 @@ const GameDetail = () => {
     };
 
     const uniqueValues = (value) => [...new Set(Array.isArray(value) ? value : [value])].join(', ');
+
+    const navigateToCategory = (type, value) => {
+        if (value) {
+            navigate(`/category/${type}/${value}`);
+        }
+    };
 
     return (
         <div className="game-detail-container" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '20px', boxSizing: 'border-box' }}>
@@ -94,23 +101,38 @@ const GameDetail = () => {
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>플랫폼</td>
-                        <td style={{ padding: '8px' }}>{uniqueValues(game.platform || [])}</td>
+                        <td style={{ padding: '8px', color: '#61dafb', cursor: 'pointer' }}
+                            onClick={() => navigateToCategory('platform', game.platform)}>
+                            {uniqueValues(game.platform || [])}
+                        </td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>플레이 방식</td>
-                        <td style={{ padding: '8px' }}>{uniqueValues(game.playType || [])}</td>
+                        <td style={{ padding: '8px', color: '#61dafb', cursor: 'pointer' }}
+                            onClick={() => navigateToCategory('play', game.playType)}>
+                            {uniqueValues(game.playType || [])}
+                        </td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>장르</td>
-                        <td style={{ padding: '8px' }}>{game.genre || '정보 없음'}</td>
+                        <td style={{ padding: '8px', color: '#61dafb', cursor: 'pointer' }}
+                            onClick={() => navigateToCategory('genre', game.genre)}>
+                            {game.genre || '정보 없음'}
+                        </td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>테마</td>
-                        <td style={{ padding: '8px' }}>{game.theme || '정보 없음'}</td>
+                        <td style={{ padding: '8px', color: '#61dafb', cursor: 'pointer' }}
+                            onClick={() => navigateToCategory('theme', game.theme)}>
+                            {game.theme || '정보 없음'}
+                        </td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', fontWeight: 'bold' }}>진행 방식</td>
-                        <td style={{ padding: '8px' }}>{game.progressType || '정보 없음'}</td>
+                        <td style={{ padding: '8px', color: '#61dafb', cursor: 'pointer' }}
+                            onClick={() => navigateToCategory('flow', game.progressType)}>
+                            {game.progressType || '정보 없음'}
+                        </td>
                     </tr>
                     <tr>
                         <td style={{ padding: '8px', cursor: 'pointer' }} onClick={() => setShowModal(true)}>
